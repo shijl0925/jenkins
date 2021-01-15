@@ -1,0 +1,14 @@
+package: jenkins
+jdk: 1.8
+build_tool: maven-3.3.9
+type: java
+stages:
+  - package
+
+step:
+    stage: package
+    script:
+        - mvn -B -U clean package -pl war -am -DskipTests
+    is_pkg: true
+    pkgType: war
+    pkgFolder: war/target/
